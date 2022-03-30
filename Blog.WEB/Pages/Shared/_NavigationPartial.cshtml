@@ -1,0 +1,46 @@
+﻿@model Blog.BLL.ViewModels.NavigationMenuModel
+@using Blog.BLL.Enums
+@using Blog.BLL.Enums
+@if (Model != null)
+{
+    <div class="navbar-collapse collapse d-sm-inline-flex">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">Index</a>
+            </li>
+            @if (Model.Menu.HasFlag(NavigationMenuEnum.UserPosts))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Post" asp-action="Posts" style="color:white">My Page</a>
+                </li>
+            }
+        </ul>
+        <ul style="justify-content: flex-end" class="navbar-nav flex-grow-1">
+
+            @if (Model.Menu.HasFlag(NavigationMenuEnum.Register))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register" style="color: white">Sign Up</a>
+                </li>
+            }
+
+
+            @if (Model.Menu.HasFlag(NavigationMenuEnum.LogOut))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout" style="color: white">Log Out</a>
+                </li>
+            }
+
+            @if (Model.Menu.HasFlag(NavigationMenuEnum.LogIn))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LogIn" style="color: white">Log In</a>
+                </li>
+
+            }
+
+        </ul>
+    </div>
+
+}

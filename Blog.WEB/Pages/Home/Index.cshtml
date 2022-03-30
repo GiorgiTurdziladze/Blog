@@ -1,0 +1,141 @@
+﻿@model X.PagedList.IPagedList<Blog.BLL.ViewModels.PostViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i&display=swap">
+
+    <link href="~/css/posts-list.css" rel="stylesheet" />
+    <link href="~/css/posts-grid.css" rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script>
+        function listView() {
+            var element = document.getElementById("posts");
+            element.classList.remove("posts-grid");
+            element.classList.add("posts-list")
+        }
+
+        function gridView() {
+            var element = document.getElementById("posts");
+            element.classList.remove("posts-list");
+            element.classList.add("posts-grid")
+        }
+    </script>
+
+    <style>
+
+        body {
+            background-color: #f2f2f2;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section.content-header {
+            width: inherit;
+            display: flex;
+            margin-bottom: 0.2in;
+        }
+
+            section.content-header div.operations {
+                display: flex;
+                margin-left: auto;
+                /* margin-right: auto; */
+                float: right;
+            }
+
+                section.content-header div.operations ul.formats {
+                    display: flex;
+                }
+
+                    section.content-header div.operations ul.formats li button {
+                        background-color: #f2f2f2;
+                        border: 0;
+                        font-size: 150%;
+                        margin-right: 0.1in;
+                    }
+
+                section.content-header div.operations div.search-container {
+                    display: block;
+                    float: left;
+                }
+    </style>
+
+    <div class="content">
+
+        <section class="content-header">
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+            <div class="operations">
+                <ul class="formats">
+                    <li><button onclick="listView()"><i class="fa fa-th-list"></i></button></li>
+                    <li><button onclick="gridView()"><i class="fa fa-th"></i></button></li>
+                </ul>
+
+            </div>
+        </section>
+        @foreach (var item in ViewBag.OnePageOfPosts)
+        {
+
+            <ul class="posts-grid" id="posts">
+
+                <li class="post">
+                    <figure>
+                        <img src="~/Images/@item.FileName">
+                    </figure>
+                    <span>
+                        <h1 class="blogTitle">@item.Title</h1>
+                        <p class="blogAuthor">@item.AuthorFullName @item.DateCreated</p>
+                        @{
+                            var description = item.Description;
+                            if (description.Length > 250)
+                            {
+                                description = description.Substring(0, 250);
+
+                                if (description.Substring(0, 250).Contains(" "))
+                                {
+                                    description = description.Substring(0, description.LastIndexOf(' '));
+                                }
+
+                                description += "...";
+
+                            }
+                        }
+                        <p class="text">
+
+                            @description
+                        </p>
+                        <p class="showMoreLink"><a href="/blogpost">Show More</a></p>
+                    </span>
+                </li>
+
+            </ul>
+        }
+        @Html.PagedListPager((IPagedList)ViewBag.OnePageOfPosts, page => Url.Action("Index", new { page }))
+    </div>
+</body>
+</html>
+
+<h1>Welcome</h1>

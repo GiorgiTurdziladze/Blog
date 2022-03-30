@@ -1,0 +1,103 @@
+﻿@model X.PagedList.IPagedList<SDSU.EDU.ProjectCore.BLL.ViewModels.PostViewModel>
+@{
+    ViewData["Title"] = "User Page";
+}
+
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title></title>
+    <link rel="&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot; integrity=&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin=&quot;anonymous&quot;&gt;" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="form-group container">
+        <a asp-controller="Post" asp-action="Add" class="btn btn-primary">
+            <span class="fa fa-plus"></span> Add
+        </a>
+    </div>
+    <hr />
+    @foreach (var item in ViewBag.OnePageOfPosts)
+    {
+        <div class="container article">
+            <div class="">
+                <img src="~/Images/@item.FileName" class="post_photo" />
+
+                <h3 class="title">@item.Title</h3>
+                <h6 class="date">@item.DateCreated</h6>
+                @{
+                    var description = item.Description;
+                    if (description.Length > 300)
+                    {
+                        description = description.Substring(0, 300);
+
+                        if (description.Substring(0, 300).Contains(" "))
+                        {
+                            description = description.Substring(0, description.LastIndexOf(' '));
+                        }
+
+                        description += "...";
+
+                    }
+                }
+                <p class="text">
+
+                    @description
+                </p>
+
+            </div>
+            <div class="view_more">
+                <div>
+                    <a asp-controller="Post" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">
+                        <span class="fa fa-search"></span> View More
+                    </a>
+                </div>
+
+                <div style="margin-left: 20px;">
+                    <a asp-controller="Post" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">
+                        <span class="fa fa-edit"></span> Edit
+                    </a>
+                </div>
+                <div style="margin-left: 20px;">
+                    <a class="btn btn-danger text-white" id="del" title="Delete" data-id="@item.Id" onclick="showPostDeleteModel('@item.Id')">
+                        <span class="fa fa-trash"></span> Delete
+                    </a>
+                </div>
+
+            </div>
+            <hr />
+        </div>
+    }
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfPosts, page => Url.Action("Posts", new { page }))
+    <div class="modal fade" id="deletePostModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="modal-title">Are you sure that you want to delete a file?</h3>
+                </div>
+                <div class="modal-body">
+                    <h3>Once deleted cannot be restored!</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-url='@Url.Action("Delete", "Post")' onclick="deletePost(this);">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="fldDeletePostId" />
+</body>
+</html>
+
+@section scripts{
+
+    <script src="~/js/post.js"></script>
+}

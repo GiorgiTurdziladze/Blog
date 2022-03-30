@@ -1,0 +1,127 @@
+div.content{
+    width: 10in;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 0.5in;
+}
+
+
+ul.posts-grid li.post {  
+    
+    float: left;
+    width: 30%; 
+    display: block;
+    margin-bottom: 0.5in;
+    padding: 0 0.1in;
+}
+
+ul.posts-grid li.post figure  {
+    
+    display: flex;
+}
+
+ul.posts-grid li.post figure img {
+    border-radius: 2%;
+    margin: auto;
+    height:100%;
+    width: 100%;
+}
+
+ul.posts-grid li.post span {
+    margin-left: 0.5in;
+}
+
+ul.posts-grid li.post .blogAuthor {
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+ul.posts-grid li.post .blogTitle {
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+}  
+
+ul.posts-grid li.post .mainContent{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+} 
+
+ul.posts-grid li.post .showMoreLink {
+    width: fit-content;
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+@media (max-width: 8.5in){
+
+
+    div.content {
+        display: block;
+        width: auto;
+    }
+
+    ul.posts-grid li.post {
+        width: 100%;
+        display: block;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.posts-grid li.post figure  {
+        height: auto;
+        display: flex;
+        margin-bottom: 0.6rem;
+    }
+    
+    ul.posts-grid li.post figure img {
+        border-radius: 2%;
+        margin: auto;
+        height:auto;
+        width: 100%;
+    }
+    
+    ul.posts-grid li.post span {
+        height: max-content;
+        margin: auto;
+    }
+    
+    ul.posts-grid li.post .blogAuthor {
+        font-size: 0.8rem;
+        margin-left: auto;
+        margin-bottom: 0.6rem;
+        margin-top: 0.6rem;
+    }
+    
+    ul.posts-grid li.post .blogTitle {
+        font-size: 1.5em;
+        margin-left: auto;
+        margin-right: auto;
+    }  
+    
+    ul.posts-grid li.post .mainContent{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    } 
+    
+    ul.posts-grid li.post .showMoreLink {
+        width: fit-content;
+        font-size: 0.8rem;
+        margin-left: auto;
+        margin-bottom: 1.2rem;
+        margin-top: 1.2rem;
+    }
+    
+
+}
+
+

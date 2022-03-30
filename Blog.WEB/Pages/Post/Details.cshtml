@@ -1,0 +1,29 @@
+﻿@model SDSU.EDU.ProjectCore.BLL.Models.PostModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+
+    <title></title>
+    <link rel="&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot; integrity=&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin=&quot;anonymous&quot;&gt;" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+
+<div class="container article">
+    <div class="">
+        <img src="~/Images/@Model.FileName" class="post_photo" />
+
+        <h3 class="title">@Model.Title</h3>
+        <h6 class="date">@Model.DateCreated</h6>
+        <p class="text">
+            @Model.Description
+        </p>
+
+    </div>
+    <div class="view_more">
+        <h5 class="author">@Model.AuthorFullName</h5>
+    </div>
+    <hr />
+</div>

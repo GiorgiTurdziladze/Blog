@@ -1,0 +1,68 @@
+﻿@model Blog.BLL.ViewModels.UserRegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="form-group">
+        <h2 style="color: #f44336"> please Sign Up</h2>
+    </div>
+    <form method="post">
+        <div class="container">
+            <div class="form-group">
+                <label><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" asp-for="FirstName">
+                <span class="required" asp-validation-for="FirstName"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" asp-for="LastName">
+                <span class="required" asp-validation-for="LastName"></span>
+            </div>
+
+            <div class="form-group">
+                <label><b>Email</b></label>
+                <input type="email" class="form-control" placeholder="Enter Email" asp-for="Email">
+                <span class="required" asp-validation-for="Email"></span>
+            </div>
+
+            <div class="form-group">
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" asp-for="Password">
+                <span class="required" asp-validation-for="Password"></span>
+
+                <div class="form-group">
+                    <label><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword">
+                    <span class="required" asp-validation-for="ConfirmPassword"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="registerbtn" asp-action="Register" asp-controller="Account">Sign Up</button>
+
+            <div style="margin-top: 20px">
+                <p class="required">@ViewBag.message</p>
+            </div>
+
+            <hr>
+
+            <p>By creating an account you agree that <a href="#">I am able to use your data</a>.</p>
+
+        </div>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\bin\Debug\netcoreapp2.2\Blog.BLL.deps.json
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\bin\Debug\netcoreapp2.2\Blog.BLL.dll
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\bin\Debug\netcoreapp2.2\Blog.BLL.pdb
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\bin\Debug\netcoreapp2.2\Blog.DAL.dll
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\bin\Debug\netcoreapp2.2\Blog.DAL.pdb
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.csproj.AssemblyReference.cache
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.AssemblyInfoInputs.cache
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.AssemblyInfo.cs
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.dll
+C:\Users\Phoenix\source\repos\Blog.WEB\Blog.BLL\obj\Debug\netcoreapp2.2\Blog.BLL.pdb
